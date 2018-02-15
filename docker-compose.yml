@@ -1,0 +1,11 @@
+version: '3'
+services:
+  python:
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    command: python3 jogos.py
+    image: cesao89/python3-part1
+    container_name: python3-part1
+    ports:
+      - "80:80"
