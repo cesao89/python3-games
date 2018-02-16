@@ -9,3 +9,21 @@ services:
     container_name: python3-part1
     ports:
       - "80:80"
+    environment:
+      - RUNIN=docker
+
+      # Escolha o seu jogo:
+      # 1 - Jogo da Forca
+      # 2 - Jogo de Adivinhação
+      - GAME=2
+
+      # Variaveis Jogo da Forca
+      #
+
+      # Jogo de Adivinhação
+      # Escolha o Nivel do Jogo
+      # 1 - Nível Fácil (Escolha 20 números para suas tentativas)
+      # 2 - Nível Médio (Escolha 10 números para suas tentativas)
+      # 3 - Nível Díficil (Escolha 5 números para suas tentativas)
+      - NIVEL=1
+      - CHUTE=5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100

@@ -1,5 +1,6 @@
 # coding=utf-8
 import random
+import os
 
 
 def jogar():
@@ -16,7 +17,13 @@ def jogar():
     print("2 - Nível Médio")
     print("3 - Nível Díficil")
 
-    nivel = int(input("Definir nível: "))
+    # Running in...
+    run = os.getenv("RUNIN")
+    if run == "docker":
+        nivel = int(os.getenv("NIVEL"))
+        print("Definir nível: ", nivel)
+    else:
+        nivel = int(input("Definir nível: "))
 
     if(nivel == 1):
         total_tentativas = 20
@@ -28,7 +35,15 @@ def jogar():
     for rodada in range(1, total_tentativas + 1):
         print("Tentativa {} de {}".format(rodada, total_tentativas))
 
-        chute_str = input("Digite um número entre 1 e 100: ")
+        # Running in...
+        run = os.getenv("RUNIN")
+        if run == "docker":
+            chute_arr = os.getenv("CHUTE").split(',')
+            chute_str = chute_arr[rodada - 1]
+            print("Digite um número entre 1 e 100: ", chute_str)
+        else:
+            chute_str = input("Digite um número entre 1 e 100: ")
+
         chute = int(chute_str)
         print("Você digitou", chute)
 
