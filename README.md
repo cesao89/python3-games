@@ -4,5 +4,5 @@
 **Executar o Jogo**
 
 ```sh
-$ python3 jogos.py
+$ python3 main.py
 ```
